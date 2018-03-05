@@ -1,10 +1,26 @@
 package com.hy.mybatismvc.entity;
 
+import lombok.*;
+import org.apache.ibatis.type.Alias;
+
 /**
  * desc: 登录用户
  * @author hy
  * @version 1.0
  * @Created on 2018/3/5 11:51
  */
+
+@Getter
+@Setter
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@Alias("loginer")
 public class Loginer {
+
+    private int id;
+
+    private String name;
+
+    private String cryptography;
 }
