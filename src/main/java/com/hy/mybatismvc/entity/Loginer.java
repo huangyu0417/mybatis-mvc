@@ -23,4 +23,10 @@ public class Loginer {
     private String name;
 
     private String cryptography;
+
+    private static final Loginer EMPTY = new Loginer(0,"","");
+
+    public static Loginer empty() {
+        return EMPTY;
+    }
 }

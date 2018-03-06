@@ -5,6 +5,9 @@ import com.hy.mybatismvc.entity.Loginer;
 import com.hy.mybatismvc.service.LoginerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Optional;
 
 /**
  * desc:
@@ -20,8 +23,23 @@ public class LoginerServiceImpl implements LoginerService {
     private LoginerDao loginerDao;
 
     @Override
+    @Transactional
     public void add(Loginer loginer) {
         loginerDao.insertLoginer(loginer);
 
     }
+
+    @Override
+    @Transactional
+    public void delete(int id) {
+        loginerDao.deleteLoginer(id);
+    }
+
+    @Override
+    public Optional<Loginer> selectById(int id) {
+        Loginer loginer = loginerDao.selectOne(id);
+        return Optional.ofNullable(loginer);
+    }
+
+
 }
